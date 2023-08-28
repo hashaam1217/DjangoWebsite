@@ -1,0 +1,19 @@
+{% extends "flagging/layout.html" %}
+
+{% block body %}
+
+    <h1>Lists of banned people</h1>
+
+    <ul>
+        {% for customer in Customer %}
+        <li>First name: {{customer.first_name}}         <br>
+            Last name: {{customer.last_name}}           <br>
+            Phone number: {{customer.phone_number}}     <br>
+            Number of flags: {{customer.flags.count}} <br>
+            <a href="/flagging/customer/{{customer.id}}">Visit profile</a>
+            <br>
+        </li>
+        {% endfor %}
+    </ul>
+
+{% endblock %}

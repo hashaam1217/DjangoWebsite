@@ -1,8 +1,8 @@
-from django.urls import path
+from django.urls import path, re_path
 from . import views
 
 urlpatterns = [
         path("", views.index, name="index"),
-        path("list/", views.list, name="list"),
-        path("customer/<int:customer_id>", views.customer, name="customer"),
+        re_path(r"^api/list/$", views.list, name="list"),
+        re_path(r"^api/customer/(?P<customer_id>\d+)/$", views.customer, name="customer"),
         ]
