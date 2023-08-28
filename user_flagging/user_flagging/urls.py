@@ -16,10 +16,15 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path, include
-from django.views.generic import RedirectView
+from django.views.generic import RedirectView, TemplateView
+from django.contrib.auth.views import LogoutView
 
 urlpatterns = [
-    path("", RedirectView.as_view(url="flagging/")),
+    # Google Auth
+    path("", TemplateView.as_view(template_name="index.html")),
+    path("accounts/", include("allauth.urls")),
+    path("logout", LogoutView.as_view()),
+
     path('admin/', admin.site.urls),
     path("flagging/", include("flagging.urls")),
     path("users/", include("users.urls")),

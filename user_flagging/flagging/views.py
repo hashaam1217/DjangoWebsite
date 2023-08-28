@@ -3,8 +3,8 @@ from django.http import HttpResponse, HttpResponseRedirect
 from .models import Customer, Business, Flag 
 # Create your views here.
 def index(request):
-    return HttpResponseRedirect("list")
-    #return render(request, "flagging/index.html")
+    #return HttpResponseRedirect("list")
+    return render(request, "flagging/index.html")
 
 def list(request):
     return render(request, "flagging/list.html", {

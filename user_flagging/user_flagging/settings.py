@@ -34,7 +34,7 @@ INSTALLED_APPS = [
     "allauth", 
     "allauth.account", 
     "allauth.socialaccount",
-    "allauth.socialaccount.providers.google",>
+    "allauth.socialaccount.providers.google",
     "django.contrib.sites",
     "users",
     "flagging",
@@ -145,7 +145,23 @@ SOCIALACCOUNT_PROVIDERS = {
             }
         }
 
-SITE_ID = 1
+SITE_ID = 2
 
-LOGIN_REDIRECT_URL = "/"
-LOGOUT_REDIRECT_URL = "/"
+LOGIN_REDIRECT_URL = "/flagging/list"
+LOGOUT_REDIRECT_URL = "/accounts/google/login"
+
+TEMPLATES = [
+    {
+        'BACKEND': 'django.template.backends.django.DjangoTemplates',
+        'DIRS': [BASE_DIR / 'templates'],
+        'APP_DIRS': True,
+        "OPTIONS": {
+            "context_processors": [ 
+                "django.template.context_processors.debug",
+                "django.template.context_processors.request",
+                "django.contrib.auth.context_processors.auth",
+                "django.contrib.messages.context_processors.messages",
+                ]
+            }
+    }
+]
