@@ -7,7 +7,7 @@
 {% block body %}
 <h1> Flags for Customer: {{Customer.first_name}} {{Customer.last_name}} </h1>
 
-{% if flags is none %}
+{% if not flags %}
 <h2> This customer has no flags</h2>
 {% endif %}
 
