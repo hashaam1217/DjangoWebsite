@@ -10,12 +10,7 @@
             Last name: {{customer.last_name}}           <br>
             Phone number: {{customer.phone_number}}     <br>
             Number of flags: {{customer.flags.count}} <br>
-            
-            <ul>
-                {% for flag in customer.flags.all %}
-                    <li>{{ flag.Date }}: {{ flag.Message }}</li>
-                {% endfor %}
-            </ul>
+            <a href="/flagging/customer/{{customer.id}}">Visit profile</a>
             <br>
         </li>
         {% endfor %}
