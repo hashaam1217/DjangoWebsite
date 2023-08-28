@@ -22,4 +22,5 @@ urlpatterns = [
     path("", RedirectView.as_view(url="flagging/")),
     path('admin/', admin.site.urls),
     path("flagging/", include("flagging.urls")),
+    path("users/", include("users.urls")),
 ]
