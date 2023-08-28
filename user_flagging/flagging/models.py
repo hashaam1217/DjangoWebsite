@@ -7,6 +7,7 @@ class Customer(models.Model):
     last_name = models.CharField(max_length=30, blank=True)
     email = models.EmailField(blank=True)
     phone_number = models.CharField(max_length=11)
+    flags = models.ManyToManyField("Flag")
     
     def __str__(self):
         return f"{self.id} {self.first_name} {self.last_name}"
@@ -22,7 +23,6 @@ class Business(models.Model):
 class Flag(models.Model): 
     Date = models.DateField()
     Message = models.CharField(max_length=200, blank=True)
-    Customer = models.ManyToManyField("Customer", related_name="flags")
     businesses = models.ManyToManyField("Business", related_name="users")
 
     def __str__(self):

@@ -4,7 +4,7 @@ from .models import Flag, Business, Customer
 class FlagSerializer(serializers.ModelSerializer):
 
     class Meta:
-        model = Business
+        model = Flag
         fields = "__all__"
 
 class BusinessSerializer(serializers.ModelSerializer):
@@ -16,5 +16,5 @@ class BusinessSerializer(serializers.ModelSerializer):
 class CustomerSerializer(serializers.ModelSerializer):
 
     class Meta:
-        model = Business
+        model = Customer
         fields = "__all__"
